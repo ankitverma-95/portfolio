@@ -889,7 +889,7 @@
                             </li>
                         </ul>
                         
-                        <a href="file:///C:/Users/Ankit%20Verma/Documents/Java/AnkitVerma_Resume_Java.pdf" class="btn btn-cv no-print" target="_blank" download="AnkitVerma_Resume_Java.pdf">
+                        <a href="./AnkitVerma_Resume_Java.pdf" class="btn btn-cv no-print" target="_blank" download="AnkitVerma_Resume_Java.pdf">
                             <i class="bi bi-download me-2"></i> Download CV
                         </a>
                     </div>
@@ -1302,7 +1302,7 @@
                     <h2 class="section-title">Contact</h2>
                     <p class="text-secondary mb-4">Feel free to reach out to me for collaboration opportunities, inquiries, or just to say hello! I'll get back to you as soon as possible.</p>
                     
-                    <form id="contact-form" action="https://formsubmit.co/av6007616@gmail.com" method="POST" target="hidden-iframe" class="mt-3">
+                    <form id="contact-form" action="https://formsubmit.co/ajax/av6007616@gmail.com" method="POST" class="mt-3">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <input type="text" id="contact-name" name="name" class="form-control form-control-custom" placeholder="Your Name" required>
@@ -1323,8 +1323,7 @@
                             </div>
                         </div>
                     </form>
-                    <!-- Hidden iframe for target response -->
-                    <iframe name="hidden-iframe" style="display:none;" id="hidden-iframe"></iframe>
+
 
                     <div id="contact-success-alert" class="alert alert-success d-none mt-3" role="alert">
                         Message sent successfully! (Note: Check your email inbox for a FormSubmit activation request if this is your first submission).
@@ -1473,21 +1472,42 @@
                 });
             });
 
-            // 5. Contact Form Native Submission via target iframe to bypass CORS
+            // 5. Contact Form AJAX Submission to bypass CORS and prevent redirects
             const contactForm = document.getElementById('contact-form');
             const successAlert = document.getElementById('contact-success-alert');
 
-            contactForm.addEventListener('submit', () => {
-                // Show success alert and reset the form after submitting
-                successAlert.classList.remove('d-none');
-                
-                setTimeout(() => {
-                    contactForm.reset();
-                }, 100);
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent default form submission
 
-                setTimeout(() => {
-                    successAlert.classList.add('d-none');
-                }, 8000);
+                const submitBtn = contactForm.querySelector('.btn-submit');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+                submitBtn.disabled = true;
+
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    successAlert.classList.remove('d-none');
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        successAlert.classList.add('d-none');
+                    }, 8000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("There was an error sending your message. Please try again later.");
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
             });
 
         });
