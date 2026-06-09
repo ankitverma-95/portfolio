@@ -22,8 +22,8 @@ app.use(express.static(path.join(__dirname)));
 
 // Serve resume PDF for download
 app.get('/download-cv', (req, res) => {
-    const resumePath = path.join('C:', 'Users', 'Ankit Verma', 'Documents', 'Java', 'AnkitVerma_Resume_Java.pdf');
-    res.download(resumePath, 'AnkitVerma_Resume.pdf', (err) => {
+    const resumePath = path.join(__dirname, 'AnkitVerma_Resume_Java.pdf');
+    res.download(resumePath, 'AnkitVerma_Resume_Java.pdf', (err) => {
         if (err) {
             console.error('Error sending resume:', err);
             res.status(404).send('Resume file not found.');
