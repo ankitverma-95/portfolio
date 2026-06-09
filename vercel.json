@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/profile.html" },
+    { "source": "/download-cv", "destination": "/AnkitVerma_Resume_Java.pdf" }
+  ],
+  "headers": [
+    {
+      "source": "/AnkitVerma_Resume_Java.pdf",
+      "headers": [
+        { "key": "Content-Disposition", "value": "attachment; filename=\"AnkitVerma_Resume_Java.pdf\"" }
+      ]
+    }
+  ]
+}
