@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Steps: Google Account → Security → 2-Step Verification → App passwords
 // Generate one for "Mail" and paste the 16-char password below.
 const GMAIL_USER = 'av6007616@gmail.com';
-const GMAIL_APP_PASSWORD = 'YOUR_APP_PASSWORD_HERE'; // Replace with your 16-char app password
+const GMAIL_APP_PASSWORD = 'hwzivkjhlcjpuljg'; // Replace with your 16-char app password
 // ─────────────────────────────────────────────────────────────────
 
 // Middleware
