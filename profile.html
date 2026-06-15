@@ -733,19 +733,604 @@
             transform: translateY(0);
         }
 
-        /* Responsive Tweak */
+        /* ==============================
+           RESPONSIVE DESIGN SYSTEM
+           ============================== */
+
+        /* --- Tablet & Small Desktop (≤991px) --- */
         @media (max-width: 991px) {
             .profile-sidebar {
                 position: relative;
                 top: 0;
                 margin-bottom: 40px;
             }
+
             .timeline-header {
                 flex-direction: column;
             }
+
             .timeline-date {
                 margin-top: 8px;
                 display: inline-block;
+            }
+
+            /* Mobile Nav Menu Styling */
+            .navbar-collapse {
+                background: var(--bg-secondary);
+                border: 1px solid var(--border-color);
+                border-radius: 16px;
+                padding: 16px;
+                margin-top: 12px;
+                box-shadow: var(--card-shadow);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+
+            .navbar-nav {
+                gap: 4px !important;
+            }
+
+            .nav-link-custom {
+                padding: 10px 16px !important;
+                border-radius: 10px;
+                font-size: 1rem;
+            }
+
+            .nav-link-custom:hover,
+            .nav-link-custom.active {
+                background: rgba(var(--accent-solid-rgb), 0.1);
+            }
+
+            #theme-toggle-btn {
+                margin-top: 8px;
+                align-self: flex-start;
+            }
+
+            .section-title {
+                font-size: 1.85rem;
+                margin-bottom: 28px;
+            }
+
+            .glass-card {
+                padding: 24px;
+                border-radius: 16px;
+            }
+
+            .service-card {
+                padding: 20px;
+            }
+
+            .container.mt-5 {
+                margin-top: 2rem !important;
+            }
+        }
+
+        /* --- Small Tablet (≤768px) --- */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.65rem;
+                margin-bottom: 24px;
+            }
+
+            .section-title::after {
+                width: 50px;
+                height: 4px;
+            }
+
+            .glass-card {
+                padding: 20px;
+                border-radius: 14px;
+            }
+
+            .user-avatar-container {
+                width: 140px;
+                height: 140px;
+            }
+
+            h2.mt-4.mb-1 {
+                font-size: 1.5rem !important;
+            }
+
+            /* Timeline adjustments */
+            .timeline {
+                padding-left: 22px;
+                margin-left: 6px;
+            }
+
+            .timeline-marker {
+                left: -33px;
+                width: 16px;
+                height: 16px;
+                border-width: 3px;
+                box-shadow: 0 0 0 4px var(--bg-primary);
+            }
+
+            .timeline-role {
+                font-size: 1.1rem;
+            }
+
+            .timeline-company {
+                font-size: 0.95rem;
+            }
+
+            .timeline-content li {
+                font-size: 0.9rem;
+            }
+
+            /* Education stacking */
+            .edu-item {
+                gap: 14px;
+            }
+
+            .edu-icon-wrapper {
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+                border-radius: 10px;
+            }
+
+            .edu-title {
+                font-size: 1.05rem;
+            }
+
+            /* Project cards - single column */
+            .project-card .project-body {
+                padding: 20px;
+            }
+
+            .project-title {
+                font-size: 1.15rem;
+            }
+
+            .project-desc {
+                font-size: 0.88rem;
+            }
+
+            /* Contact form */
+            .btn-submit {
+                width: 100%;
+                padding: 14px 24px;
+            }
+
+            /* Filter tabs scroll on small screens */
+            .filter-tabs {
+                gap: 8px;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .filter-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+                padding: 7px 16px;
+                font-size: 0.85rem;
+            }
+
+            /* Skill badges */
+            .skill-badge {
+                padding: 6px 12px;
+                font-size: 0.82rem;
+                margin-right: 6px;
+                margin-bottom: 8px;
+            }
+
+            /* Footer */
+            .footer-custom {
+                padding: 30px 0;
+                margin-top: 50px;
+            }
+        }
+
+        /* --- Mobile Phone (≤576px) --- */
+        @media (max-width: 576px) {
+            body {
+                font-size: 15px;
+            }
+
+            body::before {
+                width: 350px;
+                height: 350px;
+                top: -60px;
+                left: -60px;
+            }
+
+            body::after {
+                width: 400px;
+                height: 400px;
+                right: -150px;
+            }
+
+            .navbar-brand-custom {
+                font-size: 1.3rem;
+            }
+
+            .container.mt-5 {
+                margin-top: 1.25rem !important;
+            }
+
+            .section-title {
+                font-size: 1.45rem;
+                margin-bottom: 20px;
+            }
+
+            .section-title::after {
+                width: 42px;
+                height: 3px;
+                bottom: -6px;
+            }
+
+            .glass-card {
+                padding: 18px;
+                border-radius: 12px;
+            }
+
+            .user-avatar-container {
+                width: 120px;
+                height: 120px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            h2.mt-4.mb-1 {
+                font-size: 1.35rem !important;
+            }
+
+            /* Social icons */
+            .social-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 1.1rem;
+                border-radius: 8px;
+                margin: 0 4px;
+            }
+
+            /* Contact info list */
+            .contact-info-list {
+                margin: 18px 0;
+                padding: 16px 0;
+            }
+
+            .contact-info-item {
+                gap: 12px;
+                margin-bottom: 14px;
+            }
+
+            .contact-icon-wrapper {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .contact-label {
+                font-size: 0.7rem;
+            }
+
+            .contact-value {
+                font-size: 0.85rem;
+            }
+
+            /* Download CV button */
+            .btn-cv {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+                border-radius: 10px;
+            }
+
+            /* Service cards */
+            .service-card {
+                padding: 18px;
+                border-radius: 12px;
+            }
+
+            .service-card h4 {
+                font-size: 1.05rem;
+            }
+
+            .service-card p {
+                font-size: 0.85rem;
+            }
+
+            .service-icon {
+                font-size: 1.6rem;
+                margin-bottom: 10px;
+            }
+
+            /* About paragraph */
+            .fs-5 {
+                font-size: 1rem !important;
+            }
+
+            /* What I Do heading */
+            .h4 {
+                font-size: 1.15rem;
+            }
+
+            /* Timeline */
+            .timeline {
+                padding-left: 18px;
+                margin-left: 4px;
+                border-left-width: 2px;
+            }
+
+            .timeline-marker {
+                left: -29px;
+                width: 14px;
+                height: 14px;
+                border-width: 3px;
+                box-shadow: 0 0 0 3px var(--bg-primary);
+            }
+
+            .timeline-item {
+                margin-bottom: 28px;
+            }
+
+            .timeline-role {
+                font-size: 1rem;
+            }
+
+            .timeline-company {
+                font-size: 0.9rem;
+            }
+
+            .timeline-date {
+                font-size: 0.78rem;
+                padding: 3px 10px;
+            }
+
+            .timeline-location {
+                font-size: 0.8rem;
+            }
+
+            .timeline-content ul {
+                padding-left: 16px;
+            }
+
+            .timeline-content li {
+                font-size: 0.85rem;
+                margin-bottom: 6px;
+                line-height: 1.5;
+            }
+
+            /* Project cards */
+            .project-card .project-body {
+                padding: 16px;
+            }
+
+            .project-title {
+                font-size: 1.08rem;
+            }
+
+            .project-desc {
+                font-size: 0.85rem;
+                margin-bottom: 14px;
+            }
+
+            .project-tech-stack {
+                gap: 5px;
+                margin-bottom: 14px;
+            }
+
+            .tech-badge {
+                padding: 3px 8px;
+                font-size: 0.72rem;
+            }
+
+            .project-link {
+                font-size: 0.85rem;
+            }
+
+            /* Search box */
+            .search-input {
+                padding: 10px 16px;
+                padding-left: 40px;
+                font-size: 0.9rem;
+                border-radius: 10px;
+            }
+
+            .search-icon {
+                left: 14px;
+                font-size: 1rem;
+            }
+
+            /* Education */
+            .edu-item {
+                gap: 12px;
+            }
+
+            .edu-icon-wrapper {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+                border-radius: 8px;
+            }
+
+            .edu-title {
+                font-size: 1rem;
+            }
+
+            .edu-school {
+                font-size: 0.9rem;
+            }
+
+            .edu-meta {
+                font-size: 0.8rem;
+            }
+
+            /* Contact form */
+            .form-control-custom {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+            }
+
+            .btn-submit {
+                font-size: 0.95rem;
+                padding: 12px 20px;
+                border-radius: 8px;
+            }
+
+            /* Skill groups */
+            .skill-group {
+                margin-bottom: 20px;
+            }
+
+            .skill-group-title {
+                font-size: 0.88rem;
+                margin-bottom: 10px;
+            }
+
+            .skill-badge {
+                padding: 5px 10px;
+                font-size: 0.78rem;
+                margin-right: 5px;
+                margin-bottom: 7px;
+                border-radius: 8px;
+            }
+
+            /* Footer */
+            .footer-custom {
+                padding: 24px 0;
+                margin-top: 40px;
+            }
+
+            .footer-custom p {
+                font-size: 0.85rem;
+            }
+
+            .footer-custom .small {
+                font-size: 0.78rem !important;
+            }
+        }
+
+        /* --- Extra Small Phone (≤400px) --- */
+        @media (max-width: 400px) {
+            .glass-card {
+                padding: 14px;
+                border-radius: 10px;
+            }
+
+            .user-avatar-container {
+                width: 100px;
+                height: 100px;
+            }
+
+            h2.mt-4.mb-1 {
+                font-size: 1.2rem !important;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .social-icon {
+                width: 34px;
+                height: 34px;
+                font-size: 1rem;
+            }
+
+            .contact-icon-wrapper {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+
+            .contact-value {
+                font-size: 0.8rem;
+            }
+
+            .timeline-role {
+                font-size: 0.95rem;
+            }
+
+            .timeline-content li {
+                font-size: 0.82rem;
+            }
+
+            .edu-title {
+                font-size: 0.95rem;
+            }
+
+            .project-title {
+                font-size: 1rem;
+            }
+        }
+
+        /* --- Touch-friendly improvements --- */
+        @media (hover: none) and (pointer: coarse) {
+            .social-icon,
+            .filter-btn,
+            .skill-badge,
+            .project-link,
+            .nav-link-custom,
+            .btn-cv,
+            .btn-submit,
+            #theme-toggle-btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .nav-link-custom {
+                display: flex;
+                align-items: center;
+            }
+
+            .filter-btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Disable hover transforms on touch devices to prevent sticky states */
+            .service-card:hover,
+            .project-card:hover {
+                transform: none;
+            }
+
+            .skill-badge:hover {
+                transform: none;
+            }
+
+            /* Active states for touch feedback */
+            .social-icon:active {
+                transform: scale(0.95);
+                background: var(--accent-gradient);
+                border-color: transparent;
+                color: #fff;
+            }
+
+            .filter-btn:active {
+                transform: scale(0.97);
+            }
+
+            .project-card:active {
+                border-color: var(--border-hover);
+                box-shadow: var(--card-shadow);
+            }
+
+            .btn-cv:active,
+            .btn-submit:active {
+                transform: scale(0.98);
+            }
+        }
+
+        /* --- Landscape Phone --- */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .navbar-collapse {
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+
+            .user-avatar-container {
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -1473,7 +2058,19 @@
                 });
             });
 
-            // 5. Contact Form AJAX Submission to bypass CORS and prevent redirects
+            // 5. Mobile Nav Auto-Close on Link Click
+            const navbarCollapse = document.getElementById('navbarNav');
+            const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse, { toggle: false });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+                        bsCollapse.hide();
+                    }
+                });
+            });
+
+            // 6. Contact Form AJAX Submission to bypass CORS and prevent redirects
             const contactForm = document.getElementById('contact-form');
             const successAlert = document.getElementById('contact-success-alert');
 
