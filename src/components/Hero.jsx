@@ -156,6 +156,7 @@ export default function Hero() {
                   alt={personalInfo.name}
                   className="w-full h-full object-cover rounded-full filter contrast-105 transition-transform duration-500 hover:scale-105"
                   onError={(e) => {
+                    e.currentTarget.onerror = null;
                     e.currentTarget.src = '/img/user.svg';
                   }}
                 />
