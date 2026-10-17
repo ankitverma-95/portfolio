@@ -1,10 +1,11 @@
 {
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
   "rewrites": [
-    { "source": "/", "destination": "/profile.html" },
-    { "source": "/download-cv", "destination": "/AnkitVerma_Resume_Java.pdf" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/download-cv", "destination": "/AnkitVerma_Resume_Java.pdf" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {

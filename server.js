@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Steps: Google Account → Security → 2-Step Verification → App passwords
 // Generate one for "Mail" and paste the 16-char password below.
 const GMAIL_USER = 'av6007616@gmail.com';
-const GMAIL_APP_PASSWORD = 'hwzivkjhlcjpuljg'; // Replace with your 16-char app password
+const GMAIL_APP_PASSWORD = '43432fdswrwr232'; // Replace with your 16-char app password
 // ─────────────────────────────────────────────────────────────────
 
 // Middleware
@@ -18,6 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Serve static files
+const fs = require('fs');
+const distPath = path.join(__dirname, 'dist');
+if (fs.existsSync(distPath)) {
+    app.use(express.static(distPath));
+}
 app.use(express.static(path.join(__dirname)));
 
 // Serve resume PDF for download
@@ -98,7 +103,12 @@ app.post('/api/contact', async (req, res) => {
 
 // Default route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'profile.html'));
+    const distIndex = path.join(__dirname, 'dist', 'index.html');
+    if (fs.existsSync(distIndex)) {
+        res.sendFile(distIndex);
+    } else {
+        res.sendFile(path.join(__dirname, 'profile.html'));
+    }
 });
 
 app.listen(PORT, () => {
